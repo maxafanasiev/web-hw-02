@@ -19,13 +19,15 @@ class ConsoleInterface(UserInterface):
     def display_contacts(self, contacts):
         res = ""
         for contact in contacts:
-            res += f"Name: {contact['name']} \n" \
-                   f"Phones: {', '.join(contact['phones'])} \n" \
-                   f"Birthday: {contact['birthday']}\n" \
-                   f"Email: {contact['email']}\n" \
-                   f"Status: {contact['status']}\n" \
-                   f"Note: {contact['note']}\n"
-            res += "-" * 50 + '\n'
+            res += (
+                f"Name: {contact['name']} \n"
+                f"Phones: {', '.join(contact['phones'])} \n"
+                f"Birthday: {contact['birthday']}\n"
+                f"Email: {contact['email']}\n"
+                f"Status: {contact['status']}\n"
+                f"Note: {contact['note']}\n"
+            )
+            res += "-" * 50 + "\n"
         return res
 
     def display_notes(self, contact_name, notes):
@@ -34,7 +36,7 @@ class ConsoleInterface(UserInterface):
     def display_commands(self, commands):
         res = "Available commands:\n"
         res += "-" * 20 + "\n"
-        format_str = str('{:%s%d}' % ('^', 20))
+        format_str = str("{:%s%d}" % ("^", 20))
         for command in commands:
             res += f"{format_str.format(command)}\n"
         res += "-" * 20
